@@ -1,0 +1,50 @@
+Build a "Library Management System" in Python that lets a user manage books, members, and borrowing records through a command-line menu.
+
+Requirements
+Classes and objects: Create a Book class (title, author, ISBN, availability status) and a Member class (name, member ID, list of borrowed books).
+
+Encapsulation: Make sensitive attributes (like ISBN or member ID) private using __ prefix, and expose them only through getter/setter methods.
+
+Inheritance: Create a base class Person, and derive Member and Librarian from it — both share common attributes like name and contact info but have distinct behaviors.
+
+Polymorphism: Give Member and Librarian their own version of a method like get_role() or access_level(), so calling it behaves differently depending on the object type.
+
+Class attributes and methods: Track total_books and total_members as class-level counters, incremented correctly (using the class name, not self) every time a new object is created.
+
+Static methods: Add a utility method like Library.is_valid_isbn(isbn) that checks ISBN format without needing any instance or class data.
+
+User input: Build a menu-driven interface using input() that lets the user add a book, register a member, issue a book, return a book, and search by title/author.
+
+Exception handling: Handle invalid inputs gracefully — e.g., trying to borrow a book that's already issued, entering a non-numeric member ID, or searching for a nonexistent book — using try/except.
+
+Data structures: Store books and members in a list or dict, and use string formatting (f-strings) to display records neatly.
+
+File handling (optional stretch goal): Save and load the library's data to/from a text or JSON file, so records persist between runs.
+
+
+
+
+1. Add a new book
+2. Register a new member
+3. Issue a book to a member
+4. Return a book
+5. Search for a book
+6. View total books/members (class methods)
+7. Check ISBN validity (static method)
+8. Exit
+
+
+
+
+| Concept                 | Where it's used                              |
+| ----------------------- | -------------------------------------------- |
+| Classes/objects         | Book, Member, Librarian                      |
+| Encapsulation           | Private ISBN/member ID with getters/setters  |
+| Inheritance             | Person → Member, Librarian                   |
+| Polymorphism            | get_role() overridden per subclass           |
+| Class vs instance attrs | total_books, total_members                   |
+| Static methods          | is_valid_isbn()                              |
+| User input              | Menu-driven input() loop                     |
+| Exception handling      | Invalid input, duplicate issue, missing book |
+| String formatting       | f-strings for clean output                   |
+| Data structures         | Lists/dicts to hold book and member records  |
