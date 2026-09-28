@@ -9,6 +9,7 @@ import shutil
 import os
 import uuid
 import tempfile
+from users import auth_backend, current_active_user, fastapi_users
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -55,6 +56,10 @@ def create_post(post: PostCreate) -> PostCreate:
     return text_posts[new_index]
 
 ##############################################################################
+
+@app.include_router(fastapi_users.get_auth_router(auth_backend), prefix='/auth/jwt', tags=["auth"])
+@app.include_router(fastapi_users.get_register_router(), prefix='/auth', tags=["auth"])
+
 
 @app.post("/upload")
 async def upload_file(
